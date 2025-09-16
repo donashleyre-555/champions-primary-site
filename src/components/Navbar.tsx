@@ -93,6 +93,12 @@ const Navbar = () => {
             >
               Audio Hub
             </a>
+            <a
+              href="/coaches-corner"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              Coaches Corner
+            </a>
             <button
               onClick={() => scrollToSection("about")}
               className="text-foreground hover:text-primary transition-colors"
@@ -167,6 +173,13 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Audio Hub
+              </a>
+              <a
+                href="/coaches-corner"
+                className="block w-full text-left text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Coaches Corner
               </a>
               <button
                 onClick={() => scrollToSection("about")}
