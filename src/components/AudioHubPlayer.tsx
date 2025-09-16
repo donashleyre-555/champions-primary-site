@@ -99,7 +99,10 @@ const AudioHubPlayer = () => {
         audioRef.current.pause();
         setTimerActive(false);
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(() => {
+          // Handle case where audio file doesn't exist
+          console.warn('Audio file not found or unable to play');
+        });
         setTimerActive(true);
       }
       setIsPlaying(!isPlaying);
@@ -316,6 +319,7 @@ const AudioHubPlayer = () => {
             nextTrack();
           }
         }}
+        onError={() => setIsPlaying(false)}
         preload="metadata"
         loop={isLooping}
       />

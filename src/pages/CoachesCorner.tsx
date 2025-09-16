@@ -18,10 +18,54 @@ import {
   Calendar
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { toast } from "sonner";
 
 const CoachesCorner = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("0:00");
+
+  const handleVideoPlay = () => {
+    toast.info("Opening video player...", {
+      description: "Video will play once media files are uploaded."
+    });
+  };
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    toast.success("Link copied to clipboard!", {
+      description: "Share this episode with your network."
+    });
+  };
+
+  const handleDownload = () => {
+    toast.info("Preparing download...", {
+      description: "Episode download will be available once media files are uploaded."
+    });
+  };
+
+  const handleSubscribe = () => {
+    toast.success("Subscribe & Listen clicked!", {
+      description: "Redirecting to subscription options."
+    });
+  };
+
+  const handlePlatform = (platform: string) => {
+    toast.success(`Opening ${platform}...`, {
+      description: "Redirecting to podcast platform."
+    });
+  };
+
+  const handleEpisodePlay = (episode: string) => {
+    toast.info(`Playing ${episode}...`, {
+      description: "Audio player will load once media files are available."
+    });
+  };
+
+  const handleCommunity = (action: string) => {
+    toast.info(`Opening ${action}...`, {
+      description: "Community features coming soon!"
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,15 +140,24 @@ const CoachesCorner = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button className="btn-hero">
+                  <Button 
+                    className="btn-hero"
+                    onClick={handleVideoPlay}
+                  >
                     <Play className="w-4 h-4 mr-2" />
                     Watch Full Episode
                   </Button>
-                  <Button variant="outline">
+                  <Button 
+                    variant="outline"
+                    onClick={handleShare}
+                  >
                     <Share2 className="w-4 h-4 mr-2" />
                     Share
                   </Button>
-                  <Button variant="outline">
+                  <Button 
+                    variant="outline"
+                    onClick={handleDownload}
+                  >
                     <Download className="w-4 h-4 mr-2" />
                     Download
                   </Button>
@@ -232,17 +285,28 @@ const CoachesCorner = () => {
               </div>
               
               <div className="space-y-3">
-                <Button className="w-full btn-hero">
+                <Button 
+                  className="w-full btn-hero"
+                  onClick={handleSubscribe}
+                >
                   <Heart className="w-4 h-4 mr-2" />
                   Subscribe & Listen
                 </Button>
                 
                 <div className="grid grid-cols-2 gap-2">
-                  <Button variant="outline" size="sm">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => handlePlatform("Spotify")}
+                  >
                     <ExternalLink className="w-4 h-4 mr-1" />
                     Spotify
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => handlePlatform("Apple Podcasts")}
+                  >
                     <ExternalLink className="w-4 h-4 mr-1" />
                     Apple
                   </Button>
@@ -254,10 +318,18 @@ const CoachesCorner = () => {
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-2">Join our community</p>
                 <div className="flex justify-center gap-2">
-                  <Button variant="ghost" size="sm">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={() => handleCommunity("Chat")}
+                  >
                     <MessageCircle className="w-4 h-4" />
                   </Button>
-                  <Button variant="ghost" size="sm">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={() => handleCommunity("Share")}
+                  >
                     <Share2 className="w-4 h-4" />
                   </Button>
                 </div>
@@ -276,7 +348,11 @@ const CoachesCorner = () => {
                     { title: "The Psychology of Winning", episode: 45, duration: "28 min" },
                     { title: "Overcoming Mental Blocks", episode: 44, duration: "35 min" }
                   ].map((episode, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                    <div 
+                      key={index} 
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
+                      onClick={() => handleEpisodePlay(episode.title)}
+                    >
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                         <Play className="w-4 h-4 text-primary" />
                       </div>

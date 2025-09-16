@@ -33,7 +33,10 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(() => {
+          // Handle case where audio file doesn't exist
+          console.warn('Audio file not found or unable to play');
+        });
       }
       setIsPlaying(!isPlaying);
     }
@@ -126,6 +129,7 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
         ref={audioRef}
         src={tracks[currentTrack]?.file}
         onEnded={() => setIsPlaying(false)}
+        onError={() => setIsPlaying(false)}
         preload="metadata"
       />
     </Card>

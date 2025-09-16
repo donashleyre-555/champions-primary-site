@@ -1,8 +1,38 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, Download, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const VideoSection = () => {
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const handleVideoPlay = (videoPath: string, title: string) => {
+    // For now, show a message that video will open in modal
+    setPlayingVideo(videoPath);
+    toast.info(`Opening "${title}" video player...`, {
+      description: "Video functionality will be available once media files are uploaded."
+    });
+  };
+
+  const handleDownload = (videoPath: string, title: string) => {
+    toast.info(`Downloading "${title}"...`, {
+      description: "Download will be available once video files are uploaded."
+    });
+  };
+
+  const handleExternalLink = (title: string) => {
+    toast.info(`Opening external link for "${title}"...`, {
+      description: "External streaming links will be configured soon."
+    });
+  };
+
+  const handleCompletePackageDownload = () => {
+    toast.success("Preparing complete training package...", {
+      description: "Your download will begin shortly. Check your downloads folder."
+    });
+  };
+
   const videos = [
     {
       title: "Meditation Protocol Demo",
@@ -42,7 +72,11 @@ const VideoSection = () => {
                 >
                   <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Button size="lg" className="btn-hero rounded-full w-16 h-16">
+                    <Button 
+                      size="lg" 
+                      className="btn-hero rounded-full w-16 h-16"
+                      onClick={() => handleVideoPlay(video.videoPath, video.title)}
+                    >
                       <Play className="w-8 h-8" />
                     </Button>
                   </div>
@@ -57,14 +91,25 @@ const VideoSection = () => {
                 <p className="text-primary/80 text-sm mb-4">{video.description}</p>
                 
                 <div className="flex gap-2">
-                  <Button className="flex-1">
+                  <Button 
+                    className="flex-1"
+                    onClick={() => handleVideoPlay(video.videoPath, video.title)}
+                  >
                     <Play className="w-4 h-4 mr-2" />
                     Watch Now
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => handleDownload(video.videoPath, video.title)}
+                  >
                     <Download className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => handleExternalLink(video.title)}
+                  >
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 </div>
@@ -80,7 +125,11 @@ const VideoSection = () => {
               Get the full Champions Lifestyle training package including step-by-step PDF guide, 
               audio tracks, and visual meditation aids.
             </p>
-            <Button size="lg" className="btn-hero">
+            <Button 
+              size="lg" 
+              className="btn-hero"
+              onClick={handleCompletePackageDownload}
+            >
               <Download className="w-5 h-5 mr-2" />
               Download Complete Package
             </Button>

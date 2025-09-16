@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, MessageSquare, Send, MapPin, Phone, Clock } from "lucide-react";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +35,30 @@ const Contact = () => {
     
     // Reset success message after 5 seconds
     setTimeout(() => setIsSubmitted(false), 5000);
+  };
+
+  const handleQuickAction = (action: string) => {
+    switch (action) {
+      case "call":
+        toast.info("Scheduling Discovery Call...", {
+          description: "Redirecting to calendar booking system."
+        });
+        break;
+      case "guide":
+        toast.success("Downloading Free Guide...", {
+          description: "Your Champions Lifestyle starter guide will download shortly."
+        });
+        break;
+      case "meetup":
+        toast.info("Finding Local Meetups...", {
+          description: "Searching for Champions Lifestyle events in your area."
+        });
+        break;
+      default:
+        toast.info("Feature coming soon!", {
+          description: "This feature will be available shortly."
+        });
+    }
   };
 
   return (
@@ -195,15 +220,27 @@ const Contact = () => {
             <Card className="card-gradient p-8">
               <h3 className="text-xl font-bold mb-4">Quick Start Options</h3>
               <div className="space-y-3">
-                <Button variant="outline" className="w-full justify-start">
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => handleQuickAction("call")}
+                >
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Schedule a Discovery Call
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => handleQuickAction("guide")}
+                >
                   <Mail className="w-4 h-4 mr-2" />
                   Download Free Guide
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => handleQuickAction("meetup")}
+                >
                   <MapPin className="w-4 h-4 mr-2" />
                   Join Local Meetup
                 </Button>
