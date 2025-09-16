@@ -25,7 +25,7 @@ const Hero = () => {
           backgroundImage: `url("${heroFootballMeditation}")`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/75 to-background/95"></div>
       </div>
 
       {/* Content */}
