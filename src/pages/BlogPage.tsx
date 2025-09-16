@@ -1,3 +1,4 @@
+// Champions Lifestyle Blog Page
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
