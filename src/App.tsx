@@ -8,6 +8,7 @@ import { LiveProvider } from "@/contexts/LiveContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import BlogPage from "./pages/BlogPage";
+import AudioHub from "./pages/AudioHub";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<BlogPage />} />
+              <Route path="/audio-hub" element={<AudioHub />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
