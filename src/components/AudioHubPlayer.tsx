@@ -38,6 +38,38 @@ const AudioHubPlayer = () => {
       requiresHeadphones: true
     },
     { 
+      name: "Box Breath 4-4-4-4 (10min)", 
+      file: "/audio/box-breath-4-4-4-4-10min.mp3", 
+      description: "Structured breathing pattern - 4 counts each phase",
+      category: "Breathwork",
+      duration: "10:00",
+      requiresHeadphones: false
+    },
+    { 
+      name: "Box Breath 4-4-4-4 (20min)", 
+      file: "/audio/box-breath-4-4-4-4-20min.mp3", 
+      description: "Extended structured breathing pattern",
+      category: "Breathwork",
+      duration: "20:00",
+      requiresHeadphones: false
+    },
+    { 
+      name: "Isochronic Gamma 40Hz (10min)", 
+      file: "/audio/isochronic-gamma-40hz.mp3", 
+      description: "Cognitive enhancement and idea generation",
+      category: "Boost",
+      duration: "10:00",
+      requiresHeadphones: false
+    },
+    { 
+      name: "Isochronic Gamma 40Hz (20min)", 
+      file: "/audio/isochronic-gamma-40hz-20min.mp3", 
+      description: "Extended cognitive enhancement session",
+      category: "Boost",
+      duration: "20:00",
+      requiresHeadphones: false
+    },
+    { 
       name: "Resonant Breath 0.1Hz", 
       file: "/audio/resonant-breath-01hz.mp3", 
       description: "Calming 10-second breath cycles",
@@ -46,19 +78,19 @@ const AudioHubPlayer = () => {
       requiresHeadphones: false
     },
     { 
-      name: "Gamma Primer 40Hz", 
-      file: "/audio/isochronic-gamma-40hz.mp3", 
-      description: "Cognitive enhancement and idea generation",
-      category: "Boost",
-      duration: "2:00",
-      requiresHeadphones: false
-    },
-    { 
-      name: "Theta-Delta Sleep", 
+      name: "Theta-Delta Sleep (10min)", 
       file: "/audio/theta-delta-sleep.mp3", 
       description: "Deep relaxation and sleep preparation",
       category: "Sleep",
       duration: "10:00",
+      requiresHeadphones: true
+    },
+    { 
+      name: "Theta-Delta Sleep (20min)", 
+      file: "/audio/theta-delta-sleep-20min.mp3", 
+      description: "Extended deep sleep preparation",
+      category: "Sleep",
+      duration: "20:00",
       requiresHeadphones: true
     },
   ];
@@ -156,7 +188,8 @@ const AudioHubPlayer = () => {
       Focus: "bg-blue-500/20 text-blue-300",
       Calm: "bg-green-500/20 text-green-300",
       Boost: "bg-yellow-500/20 text-yellow-300",
-      Sleep: "bg-purple-500/20 text-purple-300"
+      Sleep: "bg-purple-500/20 text-purple-300",
+      Breathwork: "bg-teal-500/20 text-teal-300"
     };
     return colors[category as keyof typeof colors] || "bg-gray-500/20 text-gray-300";
   };

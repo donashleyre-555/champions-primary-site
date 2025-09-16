@@ -15,11 +15,14 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const tracks = [
-    { name: "Baseline Focus", file: "/audio/binaural-alpha-10hz.mp3", description: "Light focus tones for assessment" },
-    { name: "Binaural Alpha 10Hz", file: "/audio/binaural-alpha-10hz.mp3", description: "Sustained focus (headphones required)" },
-    { name: "Resonant Breath 0.1Hz", file: "/audio/resonant-breath-01hz.mp3", description: "Calming 10-second cycles" },
-    { name: "Gamma Primer 40Hz", file: "/audio/isochronic-gamma-40hz.mp3", description: "2min idea spark before focus" },
-    { name: "Sleep Theta-Delta", file: "/audio/theta-delta-sleep.mp3", description: "2-4Hz wind-down preparation" },
+    { name: "Binaural Alpha 10Hz", file: "/audio/binaural-alpha-10hz.mp3", description: "10min sustained focus (headphones required)" },
+    { name: "Box Breath 4-4-4-4 (10min)", file: "/audio/box-breath-4-4-4-4-10min.mp3", description: "10min structured breathing pattern" },
+    { name: "Box Breath 4-4-4-4 (20min)", file: "/audio/box-breath-4-4-4-4-20min.mp3", description: "20min structured breathing pattern" },
+    { name: "Isochronic Gamma 40Hz (10min)", file: "/audio/isochronic-gamma-40hz.mp3", description: "10min cognitive enhancement" },
+    { name: "Isochronic Gamma 40Hz (20min)", file: "/audio/isochronic-gamma-40hz-20min.mp3", description: "20min cognitive enhancement" },
+    { name: "Resonant Breath 0.1Hz", file: "/audio/resonant-breath-01hz.mp3", description: "10min calming cycles" },
+    { name: "Theta-Delta Sleep (10min)", file: "/audio/theta-delta-sleep.mp3", description: "10min sleep preparation" },
+    { name: "Theta-Delta Sleep (20min)", file: "/audio/theta-delta-sleep-20min.mp3", description: "20min deep sleep preparation" },
   ];
 
   useEffect(() => {
