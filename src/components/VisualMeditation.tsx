@@ -57,14 +57,15 @@ const VisualMeditation = ({ currentStep }: VisualMeditationProps) => {
   };
 
   return (
-    <Card className="card-glass p-8 text-center border-primary/20">
-      <h3 className="text-lg font-semibold mb-4 text-primary">Visual Focus Point</h3>
+    <Card className="card-glass p-8 text-center border-primary/20 transform transition-all duration-500 hover:scale-[1.02]">
+      <h3 className="text-2xl font-bold mb-6 text-primary animate-glow">Visual Focus Point</h3>
       
-      <div className="relative w-64 h-64 mx-auto mb-6 bg-black rounded-lg overflow-hidden">
+      <div className="relative w-80 h-80 mx-auto mb-8 bg-black rounded-xl overflow-hidden border-2 border-primary/30 shadow-2xl transform transition-all duration-700 hover:scale-105 animate-pulse">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 animate-float"></div>
         {renderVisualElement()}
       </div>
 
-      <p className="text-sm text-primary/80 mb-4">
+      <p className="text-lg font-medium text-primary/90 mb-6 leading-relaxed max-w-md mx-auto">
         {currentVisual.description}
       </p>
 

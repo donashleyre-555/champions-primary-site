@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Play, Sparkles } from "lucide-react";
 import heroFootballMeditation from "@/assets/hero-football-meditation.jpg";
+import VideoModal from "./VideoModal";
 
 const Hero = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   const scrollToMeditation = () => {
     const element = document.getElementById("meditation");
     if (element) {
@@ -40,37 +44,37 @@ const Hero = () => {
             <Badge variant="secondary">15-20 Minutes</Badge>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8">
             <span className="text-gradient">Champions</span>
             <br />
             <span className="text-foreground">Lifestyle</span>
           </h1>
 
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-accent mb-6 animate-float">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-accent mb-8 animate-float">
             "It's a Choice"
           </h2>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed">
             Calm your body. Focus your mind. Win small, daily.
-            <span className="text-primary font-semibold block mt-2">Proof beats promises. It's a Choice.</span>
+            <span className="text-primary font-bold block mt-4 text-2xl md:text-3xl">Proof beats promises. It's a Choice.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               size="lg" 
-              className="btn-hero text-lg px-8 py-6"
-              onClick={scrollToMeditation}
+              className="btn-hero text-xl px-10 py-8 h-auto"
+              onClick={() => setIsVideoModalOpen(true)}
             >
-              <Play className="w-5 h-5 mr-2" />
+              <Play className="w-6 h-6 mr-3" />
               Crack The Code
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black backdrop-blur-md text-lg px-8 py-6 transition-all duration-300"
-              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+              className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black backdrop-blur-md text-xl px-10 py-8 h-auto transition-all duration-300"
+              onClick={scrollToMeditation}
             >
-              Download Workbook
+              Start Practice
             </Button>
           </div>
 
@@ -87,6 +91,14 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-float"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float" style={{ animationDelay: "2s" }}></div>
       <div className="absolute top-1/2 left-20 w-16 h-16 bg-secondary/20 rounded-full blur-xl animate-float" style={{ animationDelay: "4s" }}></div>
+
+      {/* Video Modal */}
+      <VideoModal 
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        title="Crack The Code: Bentov-Gateway Protocol"
+        description="Learn the science-based approach to mastering focus, emotions, and consciousness"
+      />
     </section>
   );
 };
