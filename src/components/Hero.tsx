@@ -47,12 +47,12 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-accent mb-6 animate-float">
-            "Crack The Code"
+            "It's a Choice"
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-            Master your emotions, focus your mind, and manifest your reality using the 
-            <span className="text-primary font-semibold"> Bentov-Gateway protocol</span>
+            Calm your body. Focus your mind. Win small, daily.
+            <span className="text-primary font-semibold block mt-2">Proof beats promises. It's a Choice.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -62,7 +62,7 @@ const Hero = () => {
               onClick={scrollToMeditation}
             >
               <Play className="w-5 h-5 mr-2" />
-              Begin Your Journey
+              Crack The Code
             </Button>
             <Button 
               variant="outline" 
@@ -70,7 +70,7 @@ const Hero = () => {
               className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black backdrop-blur-md text-lg px-8 py-6 transition-all duration-300"
               onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Learn More
+              Download Workbook
             </Button>
           </div>
 
