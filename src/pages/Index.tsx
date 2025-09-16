@@ -10,6 +10,8 @@ import ProgressTracker from "@/components/ProgressTracker";
 import VisualMeditation from "@/components/VisualMeditation";
 import SessionTimer from "@/components/SessionTimer";
 import DailyLogger from "@/components/DailyLogger";
+import ProtocolGuide from "@/components/ProtocolGuide";
+import VideoSection from "@/components/VideoSection";
 import Projects from "@/components/Projects";
 import Blog from "@/components/Blog";
 import Newsletter from "@/components/Newsletter";
@@ -70,36 +72,52 @@ const Index = () => {
       <Hero />
 
       {/* Champions Lifestyle Meditation Interface */}
-      <section id="meditation" className="section-offset py-20 bg-gradient-to-br from-background via-background to-accent/5">
-        <div className="container mx-auto px-4">
+      <section id="meditation" className="section-offset py-20 bg-gradient-to-br from-secondary via-secondary to-secondary/80 relative">
+        {/* Logo Watermark */}
+        <div 
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-40"
+          style={{ backgroundImage: 'url("/images/cl-logo-watermark.png")' }}
+        ></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">
+              Champions Lifestyle Protocol
+            </h2>
+            <p className="text-lg text-primary/80 max-w-3xl mx-auto">
+              Master your emotions, focus your mind, and manifest your reality using the Bentov-Gateway protocol. 
+              A science-based approach to consciousness development.
+            </p>
+          </div>
+          
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Process Steps */}
             <div className="lg:col-span-1">
-              <Card className="card-glass p-6">
-                <h2 className="text-2xl font-bold mb-6 text-center">Process Steps</h2>
+              <Card className="card-glass p-6 border-primary/20">
+                <h2 className="text-2xl font-bold mb-6 text-center text-primary">Process Steps</h2>
                 <div className="space-y-4">
                   {steps.map((step) => (
                     <div
                       key={step.id}
                       className={`p-4 rounded-lg border-2 transition-all cursor-pointer ${
                         currentStep === step.id
-                          ? "border-primary bg-primary/10"
-                          : "border-border hover:border-primary/50"
+                          ? "border-primary bg-primary/20 shadow-glow"
+                          : "border-primary/30 hover:border-primary/70 bg-secondary/20"
                       }`}
                       onClick={() => setCurrentStep(step.id)}
                     >
                       <div className="flex items-center gap-3 mb-2">
                         <div className={`p-2 rounded-full ${
-                          currentStep === step.id ? "bg-primary text-primary-foreground" : "bg-muted"
+                          currentStep === step.id ? "bg-primary text-secondary" : "bg-primary/20 text-primary"
                         }`}>
                           {step.icon}
                         </div>
                         <div>
-                          <h3 className="font-semibold">{step.title}</h3>
-                          <p className="text-sm text-muted-foreground">{step.duration}</p>
+                          <h3 className="font-semibold text-primary">{step.title}</h3>
+                          <p className="text-sm text-primary/70">{step.duration}</p>
                         </div>
                       </div>
-                      <p className="text-sm text-muted-foreground ml-11">
+                      <p className="text-sm text-primary/80 ml-11">
                         {step.description}
                       </p>
                     </div>
@@ -133,7 +151,7 @@ const Index = () => {
                   >
                     Previous
                   </Button>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm text-primary/70">
                     Step {currentStep} of {steps.length}
                   </span>
                   <Button
@@ -151,6 +169,11 @@ const Index = () => {
               <ProgressTracker />
               <DailyLogger />
             </div>
+          </div>
+
+          {/* Protocol Guide */}
+          <div className="mt-12">
+            <ProtocolGuide />
           </div>
 
           {/* Bottom Section - Theory Cards */}
@@ -177,17 +200,20 @@ const Index = () => {
                 icon: <RotateCcw className="w-8 h-8" />
               }
             ].map((concept, index) => (
-              <Card key={index} className="card-glass p-6 text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="card-glass p-6 text-center hover:shadow-glow transition-all border-primary/20">
                 <div className="flex justify-center mb-4 text-primary">
                   {concept.icon}
                 </div>
-                <h3 className="font-bold mb-2">{concept.title}</h3>
-                <p className="text-sm text-muted-foreground">{concept.description}</p>
+                <h3 className="font-bold mb-2 text-primary">{concept.title}</h3>
+                <p className="text-sm text-primary/80">{concept.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Video Training Section */}
+      <VideoSection />
 
       {/* Projects Section */}
       <Projects />

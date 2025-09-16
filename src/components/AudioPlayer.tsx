@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
-import { Play, Pause, Volume2, SkipBack, SkipForward } from "lucide-react";
+import { Play, Pause, Volume2, SkipBack, SkipForward, Headphones } from "lucide-react";
 
 interface AudioPlayerProps {
   currentStep: number;
@@ -15,11 +15,11 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const tracks = [
-    { name: "Baseline Frequencies", file: "/audio/meditation-track-1.mp3" },
-    { name: "Alpha Waves", file: "/audio/meditation-track-1.mp3" },
-    { name: "Theta Gateway", file: "/audio/meditation-track-1.mp3" },
-    { name: "Focus Harmonics", file: "/audio/meditation-track-1.mp3" },
-    { name: "Action Activation", file: "/audio/meditation-track-1.mp3" },
+    { name: "Baseline Focus", file: "/audio/binaural-alpha-10hz.mp3", description: "Light focus tones for assessment" },
+    { name: "Binaural Alpha 10Hz", file: "/audio/binaural-alpha-10hz.mp3", description: "Sustained focus (headphones required)" },
+    { name: "Resonant Breath 0.1Hz", file: "/audio/resonant-breath-01hz.mp3", description: "Calming 10-second cycles" },
+    { name: "Gamma Primer 40Hz", file: "/audio/isochronic-gamma-40hz.mp3", description: "2min idea spark before focus" },
+    { name: "Sleep Theta-Delta", file: "/audio/theta-delta-sleep.mp3", description: "2-4Hz wind-down preparation" },
   ];
 
   useEffect(() => {
@@ -59,12 +59,16 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
   };
 
   return (
-    <Card className="card-glass p-6">
-      <h3 className="text-lg font-semibold mb-4 text-center">Audio Guidance</h3>
+    <Card className="card-glass p-6 border-primary/20">
+      <h3 className="text-lg font-semibold mb-4 text-center text-primary flex items-center justify-center gap-2">
+        <Headphones className="w-5 h-5" />
+        Audio Tracks
+      </h3>
       
-      <div className="text-center mb-4">
-        <p className="text-sm text-muted-foreground mb-2">Now Playing:</p>
-        <p className="font-medium">{tracks[currentTrack]?.name}</p>
+      <div className="text-center mb-4 bg-secondary/20 p-4 rounded-lg">
+        <p className="text-sm text-primary/70 mb-1">Now Playing:</p>
+        <p className="font-medium text-primary">{tracks[currentTrack]?.name}</p>
+        <p className="text-xs text-primary/60 mt-1">{tracks[currentTrack]?.description}</p>
       </div>
 
       <div className="flex items-center justify-center gap-4 mb-6">
@@ -101,7 +105,7 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
 
       <div className="space-y-4">
         <div className="flex items-center gap-3">
-          <Volume2 className="w-4 h-4 text-muted-foreground" />
+          <Volume2 className="w-4 h-4 text-primary/50" />
           <Slider
             value={volume}
             onValueChange={handleVolumeChange}
@@ -109,10 +113,13 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
             step={1}
             className="flex-1"
           />
-          <span className="text-sm text-muted-foreground w-8">
+          <span className="text-sm text-primary/70 w-8">
             {volume[0]}%
           </span>
         </div>
+        <p className="text-xs text-primary/60 text-center">
+          💡 Keep volume low for binaural effectiveness • 🎧 Headphones required for binaural tracks
+        </p>
       </div>
 
       <audio
