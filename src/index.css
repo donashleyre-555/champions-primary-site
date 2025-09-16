@@ -8,38 +8,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 0%; /* Pure black background for light mode too */
+    --foreground: 0 0% 98%; /* White text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 5%; /* Almost black for cards */
+    --card-foreground: 43 96% 56%; /* Gold text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
 
     /* Champions Lifestyle Black/Gold Brand Colors */
-    --primary: 51 100% 50%; /* Gold #FFD700 */
+    --primary: 43 96% 56%; /* Refined Gold #D4AF37 */
     --primary-foreground: 0 0% 0%; /* Black text on gold */
-    --primary-glow: 45 100% 60%; /* Lighter gold */
+    --primary-glow: 48 100% 67%; /* Lighter gold */
 
     --secondary: 0 0% 0%; /* Pure Black */
-    --secondary-foreground: 51 100% 50%; /* Gold text on black */
+    --secondary-foreground: 43 96% 56%; /* Gold text on black */
 
-    --muted: 0 0% 10%; /* Very dark grey */
-    --muted-foreground: 51 20% 70%; /* Muted gold */
+    --muted: 0 0% 8%; /* Very dark grey */
+    --muted-foreground: 43 30% 70%; /* Muted gold */
 
-    --accent: 45 100% 45%; /* Deeper gold */
+    --accent: 43 86% 50%; /* Deeper refined gold */
     --accent-foreground: 0 0% 0%; /* Black text */
 
     --card: 0 0% 5%; /* Almost black for cards */
-    --card-foreground: 51 100% 50%; /* Gold text */
+    --card-foreground: 43 96% 56%; /* Gold text */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 240 73% 57%;
+    --border: 43 30% 25%; /* Gold-tinted border */
+    --input: 0 0% 12%; /* Dark input */
+    --ring: 43 96% 56%; /* Gold ring */
 
     --radius: 0.75rem;
 
@@ -74,37 +74,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 0%; /* Pure black background */
+    --foreground: 0 0% 98%; /* White text */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 7%; /* Slightly lighter black for cards */
+    --card-foreground: 43 96% 56%; /* Gold text */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 51 100% 50%; /* Gold stays same in dark mode */
+    --primary: 43 96% 56%; /* Refined Gold stays same in dark mode */
     --primary-foreground: 0 0% 0%; /* Black text on gold */
-    --primary-glow: 45 100% 60%; /* Lighter gold */
+    --primary-glow: 48 100% 67%; /* Lighter gold */
 
     --secondary: 0 0% 0%; /* Pure Black */
-    --secondary-foreground: 51 100% 50%; /* Gold text on black */
+    --secondary-foreground: 43 96% 56%; /* Gold text on black */
 
-    --muted: 0 0% 15%; /* Slightly lighter dark grey */
-    --muted-foreground: 51 20% 70%; /* Muted gold */
+    --muted: 0 0% 12%; /* Slightly lighter dark grey */
+    --muted-foreground: 43 30% 70%; /* Muted gold */
 
-    --accent: 45 100% 45%; /* Deeper gold */
+    --accent: 43 86% 50%; /* Deeper refined gold */
     --accent-foreground: 0 0% 0%; /* Black text */
-
-    --card: 0 0% 8%; /* Almost black for cards */
-    --card-foreground: 51 100% 50%; /* Gold text */
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 260 81% 67%;
+    --border: 43 30% 20%; /* Gold-tinted border */
+    --input: 0 0% 10%; /* Dark input */
+    --ring: 43 96% 56%; /* Gold ring */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
