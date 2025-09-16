@@ -136,7 +136,7 @@ All colors MUST be HSL.
 
   /* Card Variants */
   .card-gradient {
-    @apply bg-gradient-to-br from-card to-muted border border-primary/20 shadow-elegant;
+    @apply bg-gradient-to-br from-card to-muted border border-primary/20 shadow-xl;
   }
   
   .card-glass {

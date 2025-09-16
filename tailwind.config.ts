@@ -57,7 +57,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-      },
+        },
+        boxShadow: {
+          'elegant': '0 10px 30px -10px hsl(var(--primary) / 0.3)',
+          'glow': '0 0 40px hsl(var(--primary-glow) / 0.4)',
+        },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
