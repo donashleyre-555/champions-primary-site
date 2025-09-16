@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { useLive } from "@/contexts/LiveContext";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLive, setIsLive] = useState(false);
+  const { setModalOpen } = useLive();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +16,19 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Simulate live status check - in production, check actual streaming platform
+    const checkLiveStatus = () => {
+      const isCurrentlyLive = Math.random() > 0.7; // 30% chance of being live for demo
+      setIsLive(isCurrentlyLive);
+    };
+
+    checkLiveStatus();
+    const interval = setInterval(checkLiveStatus, 60000); // Check every minute
+
+    return () => clearInterval(interval);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -83,6 +99,14 @@ const Navbar = () => {
             >
               Contact
             </button>
+            {isLive && (
+              <Button
+                onClick={() => setModalOpen(true)}
+                className="bg-red-600 hover:bg-red-700 text-white font-semibold animate-pulse"
+              >
+                🔴 Watch Live
+              </Button>
+            )}
             <ThemeToggle />
           </div>
 
