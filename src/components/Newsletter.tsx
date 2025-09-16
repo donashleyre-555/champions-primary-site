@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Send, CheckCircle, Sparkles } from "lucide-react";
+import { Mail, Send, CheckCircle, Sparkles, Award, Trophy } from "lucide-react";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -27,41 +27,54 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="newsletter" className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10">
+    <section id="newsletter" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <Card className="card-gradient max-w-4xl mx-auto p-8 md:p-12 text-center relative overflow-hidden">
+        <Card className="card-gradient max-w-5xl mx-auto relative overflow-hidden">
+          {/* Header with Logo */}
+          <div className="bg-gradient-to-r from-background via-primary/5 to-background p-8 border-b border-primary/20">
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/images/champions-logo.png" 
+                alt="Champions Lifestyle Logo" 
+                className="h-16 md:h-20 w-auto animate-glow"
+              />
+            </div>
+            <h1 className="text-2xl md:text-3xl font-bold text-center text-gradient">
+              Champions Lifestyle Newsletter
+            </h1>
+            <p className="text-center text-muted-foreground mt-2 text-sm">
+              "IT'S A CHOICE" - Exclusive insights for champions
+            </p>
+          </div>
+
           {/* Background Decorations */}
           <div className="absolute top-10 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-float"></div>
           <div className="absolute bottom-10 right-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float" style={{ animationDelay: "2s" }}></div>
           
-          <div className="relative z-10">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-primary/10 rounded-full animate-glow">
-                <Mail className="w-8 h-8 text-primary" />
-              </div>
-            </div>
-
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
-              Join the Champions Community
-            </h2>
+          <div className="relative z-10 p-8 md:p-12">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+                Join the Elite Circle
+              </h2>
             
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Get exclusive access to advanced meditation techniques, consciousness research updates, 
-              and tools for accelerating your personal transformation journey.
-            </p>
+              <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+                Get exclusive access to championship mindset training, the Bentov-Gateway protocol updates, 
+                and proven strategies for mastering your emotions and manifesting your reality.
+              </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Sparkles className="w-4 h-4 text-primary" />
-                Weekly Insights
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Sparkles className="w-4 h-4 text-accent" />
-                Exclusive Content
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Sparkles className="w-4 h-4 text-secondary" />
-                Early Access
+              <div className="grid md:grid-cols-3 gap-4 mb-8">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground bg-primary/5 p-3 rounded-lg">
+                  <Trophy className="w-4 h-4 text-primary" />
+                  Champion's Weekly Insights
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground bg-accent/5 p-3 rounded-lg">
+                  <Award className="w-4 h-4 text-accent" />
+                  Exclusive Protocol Updates
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary/5 p-3 rounded-lg">
+                  <Sparkles className="w-4 h-4 text-secondary" />
+                  VIP Early Access
+                </div>
               </div>
             </div>
 
@@ -110,18 +123,25 @@ const Newsletter = () => {
             )}
 
             <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary mb-1">5,000+</div>
-                <div className="text-sm text-muted-foreground">Active Members</div>
+              <div className="text-center p-4 bg-primary/5 rounded-lg">
+                <div className="text-2xl font-bold text-primary mb-1">10,000+</div>
+                <div className="text-sm text-muted-foreground">Champions Trained</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-accent mb-1">98%</div>
-                <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+              <div className="text-center p-4 bg-accent/5 rounded-lg">
+                <div className="text-2xl font-bold text-accent mb-1">15+ Years</div>
+                <div className="text-sm text-muted-foreground">Proven Methods</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-secondary mb-1">24/7</div>
-                <div className="text-sm text-muted-foreground">Community Support</div>
+              <div className="text-center p-4 bg-secondary/5 rounded-lg">
+                <div className="text-2xl font-bold text-secondary mb-1">100%</div>
+                <div className="text-sm text-muted-foreground">Science-Based</div>
               </div>
+            </div>
+
+            {/* Footer Branding */}
+            <div className="mt-8 pt-6 border-t border-primary/20 text-center">
+              <p className="text-xs text-muted-foreground">
+                © 2024 Champions Lifestyle | Transform Your Mind, Transform Your Life
+              </p>
             </div>
           </div>
         </Card>
