@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Play, Sparkles } from "lucide-react";
+import heroFootballMeditation from "@/assets/hero-football-meditation.jpg";
 
 const Hero = () => {
   const scrollToMeditation = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/images/hero-meditation-male.jpg')",
+          backgroundImage: `url("${heroFootballMeditation}")`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background/90"></div>
