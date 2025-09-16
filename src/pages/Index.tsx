@@ -17,6 +17,7 @@ import Blog from "@/components/Blog";
 import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 import LiveWebinar from "@/components/LiveWebinar";
+import Challenges from "@/components/Challenges";
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -218,6 +219,9 @@ const Index = () => {
 
       {/* Video Training Section */}
       <VideoSection />
+
+      {/* Challenges Section */}
+      <Challenges />
 
       {/* Projects Section */}
       <Projects />
