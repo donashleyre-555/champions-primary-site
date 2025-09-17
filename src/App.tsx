@@ -10,6 +10,7 @@ import About from "./pages/About";
 import BlogPage from "./pages/BlogPage";
 import CoachesCorner from "./pages/CoachesCorner";
 import AudioHub from "./pages/AudioHub";
+import FibonacciChallenge from "./pages/FibonacciChallenge";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/coaches-corner" element={<CoachesCorner />} />
               <Route path="/audio-hub" element={<AudioHub />} />
+              <Route path="/fibonacci-challenge" element={<FibonacciChallenge />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

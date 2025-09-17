@@ -214,6 +214,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Fibonacci Challenge CTA */}
+      <section className="py-16 bg-gradient-to-br from-secondary/20 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Card className="card-glass p-8 max-w-2xl mx-auto border-primary/20">
+              <h3 className="text-2xl font-bold text-primary mb-4">Ready for Your Next Challenge?</h3>
+              <p className="text-primary/80 mb-6">
+                Take your practice to the next level with the Tesla-Fibonacci Challenge. 
+                20 days to build champion habits using Tesla's 3-6-9 framework.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="gap-2" asChild>
+                  <a href="/fibonacci-challenge">
+                    <Target className="w-5 h-5" />
+                    Start Fibonacci Challenge
+                  </a>
+                </Button>
+                <Button variant="outline" size="lg" className="gap-2" onClick={() => document.getElementById('meditation')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Atom className="w-5 h-5" />
+                  Continue Practice
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Live Webinar Section */}
       <LiveWebinar />
 
