@@ -221,7 +221,7 @@ const Index = () => {
             <Card className="card-glass p-8 max-w-2xl mx-auto border-primary/20">
               <h3 className="text-2xl font-bold text-primary mb-4">Ready for Your Next Challenge?</h3>
               <p className="text-primary/80 mb-6">
-                Take your practice to the next level with the Tesla-Fibonacci Challenge. 
+                Take your practice to the next level with the Champions Lifestyle-Fibonacci Challenge. 
                 20 days to build champion habits using Tesla's 3-6-9 framework.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

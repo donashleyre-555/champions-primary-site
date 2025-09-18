@@ -120,7 +120,7 @@ const FibonacciChallenge = () => {
               Champions Lifestyle Program
             </Badge>
             <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6">
-              Tesla–Fibonacci
+              Champions Lifestyle-Fibonacci
               <span className="block text-primary/80">Challenge</span>
             </h1>
             <p className="text-xl text-primary/90 mb-4">

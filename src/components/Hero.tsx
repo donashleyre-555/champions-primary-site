@@ -35,6 +35,15 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         <div className="animate-fade-in-up">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/images/champions-logo-trans.png" 
+              alt="Champions Lifestyle Logo" 
+              className="h-20 md:h-24 lg:h-28 w-auto"
+            />
+          </div>
+          
           <div className="flex justify-center gap-2 mb-6">
             <Badge variant="secondary" className="animate-glow">
               <Sparkles className="w-3 h-3 mr-1" />
@@ -44,34 +53,34 @@ const Hero = () => {
             <Badge variant="secondary">15-20 Minutes</Badge>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8">
             <span className="text-gradient">Champions</span>
             <br />
             <span className="text-foreground">Lifestyle</span>
           </h1>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-accent mb-8 animate-float">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-accent mb-8 animate-float">
             "It's a Choice"
           </h2>
 
-          <p className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed">
             Calm your body. Focus your mind. Win small, daily.
-            <span className="text-primary font-bold block mt-4 text-2xl md:text-3xl">Proof beats promises. It's a Choice.</span>
+            <span className="text-primary font-bold block mt-4 text-lg md:text-xl">Proof beats promises. It's a Choice.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
-              size="lg" 
-              className="btn-hero text-xl px-10 py-8 h-auto"
+              size="default" 
+              className="btn-hero text-base px-6 py-4 h-auto"
               onClick={() => setIsVideoModalOpen(true)}
             >
-              <Play className="w-6 h-6 mr-3" />
+              <Play className="w-4 h-4 mr-2" />
               Crack The Code
             </Button>
             <Button 
               variant="outline" 
-              size="lg" 
-              className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black backdrop-blur-md text-xl px-10 py-8 h-auto transition-all duration-300"
+              size="default" 
+              className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black backdrop-blur-md text-base px-6 py-4 h-auto transition-all duration-300"
               onClick={scrollToMeditation}
             >
               Start Practice
