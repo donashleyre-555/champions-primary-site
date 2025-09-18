@@ -75,6 +75,12 @@ const Navbar = () => {
             >
               Fibonacci Challenge
             </a>
+            <a
+              href="/wellness-toolkit"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              Wellness Toolkit
+            </a>
             <button
               onClick={() => scrollToSection("meditation")}
               className="text-foreground hover:text-primary transition-colors"
@@ -161,6 +167,13 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Fibonacci Challenge
+              </a>
+              <a
+                href="/wellness-toolkit"
+                className="block w-full text-left text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Wellness Toolkit
               </a>
               <button
                 onClick={() => scrollToSection("meditation")}
