@@ -23,6 +23,10 @@ const AudioPlayer = ({ currentStep }: AudioPlayerProps) => {
     { name: "Resonant Breath 0.1Hz", file: "/audio/resonant-breath-01hz.mp3", description: "10min calming cycles" },
     { name: "Theta-Delta Sleep (10min)", file: "/audio/theta-delta-sleep.mp3", description: "10min sleep preparation" },
     { name: "Theta-Delta Sleep (20min)", file: "/audio/theta-delta-sleep-20min.mp3", description: "20min deep sleep preparation" },
+    { name: "Cellular Renewal Healing", file: "/audio/cellular-renewal-healing-30min.mp3", description: "30min deep healing & regeneration session" },
+    { name: "Champions Lifestyle Anthem", file: "/audio/champions-lifestyle-anthem.mp3", description: "Motivational theme music for inspiration" },
+    { name: "Champions Pre-Game Background", file: "/audio/champions-lifestyle-pregame.mp3", description: "Preparation music for focus sessions" },
+    { name: "Coach Don Voice Guide", file: "/audio/coach-don-voice.mp3", description: "Personal coaching and guidance audio" },
   ];
 
   useEffect(() => {
