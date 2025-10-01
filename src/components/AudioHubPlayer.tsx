@@ -93,6 +93,38 @@ const AudioHubPlayer = () => {
       duration: "20:00",
       requiresHeadphones: true
     },
+    { 
+      name: "Cellular Renewal Healing", 
+      file: "/audio/cellular-renewal-healing-30min.mp3", 
+      description: "Deep healing and cellular regeneration session",
+      category: "Healing",
+      duration: "30:00",
+      requiresHeadphones: false
+    },
+    { 
+      name: "Champions 417Hz Reset", 
+      file: "/audio/champions-417hz-reset.mp3", 
+      description: "Frequency healing reset for transformation",
+      category: "Healing",
+      duration: "25:00",
+      requiresHeadphones: true
+    },
+    { 
+      name: "Champions Pre-Game Background", 
+      file: "/audio/champions-pregame-background.mp3", 
+      description: "Energizing preparation music for peak performance",
+      category: "Motivation",
+      duration: "5:00",
+      requiresHeadphones: false
+    },
+    { 
+      name: "Quantum Field Reboot", 
+      file: "/audio/quantum-field-reboot-30min.mp3", 
+      description: "30min quantum energy field reset and alignment",
+      category: "Healing",
+      duration: "30:00",
+      requiresHeadphones: false
+    },
   ];
 
   useEffect(() => {
