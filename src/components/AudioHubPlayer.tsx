@@ -93,38 +93,6 @@ const AudioHubPlayer = () => {
       duration: "20:00",
       requiresHeadphones: true
     },
-    { 
-      name: "Cellular Renewal Healing", 
-      file: "/audio/cellular-renewal-healing-30min.mp3", 
-      description: "Deep healing and cellular regeneration session",
-      category: "Healing",
-      duration: "30:00",
-      requiresHeadphones: false
-    },
-    { 
-      name: "Champions Lifestyle Anthem", 
-      file: "/audio/champions-lifestyle-anthem.mp3", 
-      description: "Inspirational theme music for peak performance",
-      category: "Motivation",
-      duration: "3:30",
-      requiresHeadphones: false
-    },
-    { 
-      name: "Champions Pre-Game Background", 
-      file: "/audio/champions-lifestyle-pregame.mp3", 
-      description: "Energizing preparation music for focus sessions",
-      category: "Motivation",
-      duration: "5:00",
-      requiresHeadphones: false
-    },
-    { 
-      name: "Coach Don Voice Guide", 
-      file: "/audio/coach-don-voice.mp3", 
-      description: "Personal coaching and guidance audio",
-      category: "Guidance",
-      duration: "8:45",
-      requiresHeadphones: false
-    },
   ];
 
   useEffect(() => {
