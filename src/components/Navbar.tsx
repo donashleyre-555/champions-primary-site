@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut, User } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { useLive } from "@/contexts/LiveContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLive, setIsLive] = useState(false);
   const { setModalOpen } = useLive();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,6 +134,24 @@ const Navbar = () => {
               </Button>
             )}
             <ThemeToggle />
+            {user ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={signOut}
+                className="flex items-center gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </Button>
+            ) : (
+              <a href="/auth">
+                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  Sign In
+                </Button>
+              </a>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -219,6 +239,27 @@ const Navbar = () => {
               >
                 Contact
               </button>
+              {user ? (
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    signOut();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full justify-start"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sign Out
+                </Button>
+              ) : (
+                <a 
+                  href="/auth"
+                  className="block w-full text-left text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sign In
+                </a>
+              )}
             </div>
           </div>
         )}

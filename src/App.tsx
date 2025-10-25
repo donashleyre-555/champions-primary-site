@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { LiveProvider } from "@/contexts/LiveContext";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import BlogPage from "./pages/BlogPage";
@@ -12,6 +13,7 @@ import CoachesCorner from "./pages/CoachesCorner";
 import AudioHub from "./pages/AudioHub";
 import FibonacciChallenge from "./pages/FibonacciChallenge";
 import WellnessToolkit from "./pages/WellnessToolkit";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,25 +26,28 @@ const App = () => (
       enableSystem
       disableTransitionOnChange
     >
-      <LiveProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/coaches-corner" element={<CoachesCorner />} />
-              <Route path="/audio-hub" element={<AudioHub />} />
-              <Route path="/fibonacci-challenge" element={<FibonacciChallenge />} />
-              <Route path="/wellness-toolkit" element={<WellnessToolkit />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </LiveProvider>
+      <AuthProvider>
+        <LiveProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/coaches-corner" element={<CoachesCorner />} />
+                <Route path="/audio-hub" element={<AudioHub />} />
+                <Route path="/fibonacci-challenge" element={<FibonacciChallenge />} />
+                <Route path="/wellness-toolkit" element={<WellnessToolkit />} />
+                <Route path="/auth" element={<Auth />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </LiveProvider>
+      </AuthProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );
