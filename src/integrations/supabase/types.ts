@@ -14,7 +14,162 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      daily_logs: {
+        Row: {
+          calm_level: number | null
+          created_at: string | null
+          focus_level: number | null
+          id: string
+          log_date: string
+          notes: string | null
+          user_id: string
+        }
+        Insert: {
+          calm_level?: number | null
+          created_at?: string | null
+          focus_level?: number | null
+          id?: string
+          log_date?: string
+          notes?: string | null
+          user_id: string
+        }
+        Update: {
+          calm_level?: number | null
+          created_at?: string | null
+          focus_level?: number | null
+          id?: string
+          log_date?: string
+          notes?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "daily_logs_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      meditation_sessions: {
+        Row: {
+          audio_track: string | null
+          completed_at: string | null
+          duration_seconds: number
+          id: string
+          notes: string | null
+          session_type: string
+          step_completed: number | null
+          user_id: string
+        }
+        Insert: {
+          audio_track?: string | null
+          completed_at?: string | null
+          duration_seconds: number
+          id?: string
+          notes?: string | null
+          session_type: string
+          step_completed?: number | null
+          user_id: string
+        }
+        Update: {
+          audio_track?: string | null
+          completed_at?: string | null
+          duration_seconds?: number
+          id?: string
+          notes?: string | null
+          session_type?: string
+          step_completed?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "meditation_sessions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          first_name?: string | null
+          id: string
+          last_name?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          calm_level: number | null
+          current_streak: number | null
+          focus_level: number | null
+          id: string
+          last_session_date: string | null
+          longest_streak: number | null
+          total_minutes: number | null
+          total_sessions: number | null
+          updated_at: string | null
+          user_id: string
+          weekly_goal: number | null
+        }
+        Insert: {
+          calm_level?: number | null
+          current_streak?: number | null
+          focus_level?: number | null
+          id?: string
+          last_session_date?: string | null
+          longest_streak?: number | null
+          total_minutes?: number | null
+          total_sessions?: number | null
+          updated_at?: string | null
+          user_id: string
+          weekly_goal?: number | null
+        }
+        Update: {
+          calm_level?: number | null
+          current_streak?: number | null
+          focus_level?: number | null
+          id?: string
+          last_session_date?: string | null
+          longest_streak?: number | null
+          total_minutes?: number | null
+          total_sessions?: number | null
+          updated_at?: string | null
+          user_id?: string
+          weekly_goal?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_progress_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
