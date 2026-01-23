@@ -2,15 +2,21 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Play, Pause, RotateCcw, Clock } from "lucide-react";
+import { Play, Pause, RotateCcw, Clock, CheckCircle } from "lucide-react";
 
 interface SessionTimerProps {
   sessionActive: boolean;
   currentStep: number;
   onSessionToggle: (active: boolean) => void;
+  onSessionComplete?: (durationSeconds: number, stepCompleted: number) => void;
 }
 
-const SessionTimer = ({ sessionActive, currentStep, onSessionToggle }: SessionTimerProps) => {
+const SessionTimer = ({ 
+  sessionActive, 
+  currentStep, 
+  onSessionToggle,
+  onSessionComplete 
+}: SessionTimerProps) => {
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [stepStartTime, setStepStartTime] = useState(0);
 
@@ -49,6 +55,13 @@ const SessionTimer = ({ sessionActive, currentStep, onSessionToggle }: SessionTi
     setTimeElapsed(0);
     setStepStartTime(0);
     onSessionToggle(false);
+  };
+
+  const completeSession = () => {
+    if (timeElapsed > 0 && onSessionComplete) {
+      onSessionComplete(timeElapsed, currentStep);
+    }
+    resetTimer();
   };
 
   return (
@@ -98,6 +111,18 @@ const SessionTimer = ({ sessionActive, currentStep, onSessionToggle }: SessionTi
             </>
           )}
         </Button>
+        
+        {timeElapsed > 0 && (
+          <Button
+            variant="default"
+            size="lg"
+            onClick={completeSession}
+            className="bg-green-600 hover:bg-green-700"
+          >
+            <CheckCircle className="w-5 h-5 mr-2" />
+            Complete
+          </Button>
+        )}
         
         <Button
           variant="outline"

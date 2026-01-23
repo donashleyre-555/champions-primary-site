@@ -1,19 +1,61 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Trophy, Target, Zap } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Calendar, Trophy, Target, Zap, LogIn } from "lucide-react";
+import { useUserProgress } from "@/hooks/useUserProgress";
+import { useAuth } from "@/contexts/AuthContext";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const ProgressTracker = () => {
-  const [currentStreak, setCurrentStreak] = useState(7);
-  const [totalSessions, setTotalSessions] = useState(23);
-  const [focusLevel, setFocusLevel] = useState(4);
-  const [calmLevel, setCalmLevel] = useState(4);
+  const { user } = useAuth();
+  const { progress, loading } = useUserProgress();
 
-  const weeklyGoal = 7;
-  const completedThisWeek = 5;
+  // Convert 0-100 scale to 1-5 for display
+  const focusLevel = progress ? Math.ceil(progress.focus_level / 20) : 3;
+  const calmLevel = progress ? Math.ceil(progress.calm_level / 20) : 3;
+
+  const weeklyGoal = progress?.weekly_goal || 5;
+  // For now, we'll calculate this from total_sessions mod 7 as a simple approach
+  // A more accurate approach would require querying sessions from this week
+  const completedThisWeek = progress ? Math.min(progress.total_sessions % 7, weeklyGoal) : 0;
   const progressPercentage = (completedThisWeek / weeklyGoal) * 100;
+
+  if (!user) {
+    return (
+      <Card className="card-gradient p-6">
+        <div className="flex items-center gap-2 mb-6">
+          <Trophy className="w-5 h-5 text-primary" />
+          <h3 className="text-lg font-semibold">Progress Tracker</h3>
+        </div>
+        <div className="text-center py-8">
+          <LogIn className="w-8 h-8 mx-auto mb-3 text-muted-foreground" />
+          <p className="text-muted-foreground mb-4">Sign in to track your progress</p>
+          <Button asChild variant="outline" size="sm">
+            <Link to="/auth">Sign In</Link>
+          </Button>
+        </div>
+      </Card>
+    );
+  }
+
+  if (loading) {
+    return (
+      <Card className="card-gradient p-6">
+        <div className="flex items-center gap-2 mb-6">
+          <Trophy className="w-5 h-5 text-primary" />
+          <h3 className="text-lg font-semibold">Progress Tracker</h3>
+        </div>
+        <div className="space-y-4">
+          <Skeleton className="h-8 w-full" />
+          <Skeleton className="h-4 w-3/4" />
+          <Skeleton className="h-20 w-full" />
+          <Skeleton className="h-4 w-1/2" />
+        </div>
+      </Card>
+    );
+  }
 
   return (
     <Card className="card-gradient p-6">
@@ -28,9 +70,14 @@ const ProgressTracker = () => {
           <span className="text-sm font-medium">Current Streak</span>
           <Badge variant="secondary" className="animate-glow">
             <Zap className="w-3 h-3 mr-1" />
-            {currentStreak} days
+            {progress?.current_streak || 0} days
           </Badge>
         </div>
+        {progress?.longest_streak && progress.longest_streak > 0 && (
+          <p className="text-xs text-muted-foreground">
+            Longest streak: {progress.longest_streak} days
+          </p>
+        )}
       </div>
 
       {/* Weekly Progress */}
@@ -48,13 +95,13 @@ const ProgressTracker = () => {
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="text-center p-3 bg-muted/50 rounded-lg">
           <Calendar className="w-4 h-4 mx-auto mb-1 text-primary" />
-          <p className="text-sm font-medium">{totalSessions}</p>
+          <p className="text-sm font-medium">{progress?.total_sessions || 0}</p>
           <p className="text-xs text-muted-foreground">Total Sessions</p>
         </div>
         <div className="text-center p-3 bg-muted/50 rounded-lg">
           <Target className="w-4 h-4 mx-auto mb-1 text-accent" />
-          <p className="text-sm font-medium">85%</p>
-          <p className="text-xs text-muted-foreground">Success Rate</p>
+          <p className="text-sm font-medium">{progress?.total_minutes || 0}</p>
+          <p className="text-xs text-muted-foreground">Total Minutes</p>
         </div>
       </div>
 
