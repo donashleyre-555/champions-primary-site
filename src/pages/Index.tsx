@@ -18,10 +18,30 @@ import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 import LiveWebinar from "@/components/LiveWebinar";
 import Challenges from "@/components/Challenges";
+import { useMeditationSessions } from "@/hooks/useMeditationSessions";
+import { useUserProgress } from "@/hooks/useUserProgress";
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [sessionActive, setSessionActive] = useState(false);
+  const { saveSession } = useMeditationSessions();
+  const { incrementSessions, refetch: refetchProgress } = useUserProgress();
+
+  const handleSessionComplete = async (durationSeconds: number, stepCompleted: number) => {
+    // Save the meditation session
+    const { error } = await saveSession({
+      duration_seconds: durationSeconds,
+      session_type: "protocol",
+      step_completed: stepCompleted,
+    });
+
+    if (!error) {
+      // Update user progress (streak, total sessions)
+      await incrementSessions(durationSeconds);
+      // Refresh progress data to update UI
+      await refetchProgress();
+    }
+  };
   
   const steps = [
     {
@@ -136,6 +156,7 @@ const Index = () => {
                   sessionActive={sessionActive}
                   currentStep={currentStep}
                   onSessionToggle={setSessionActive}
+                  onSessionComplete={handleSessionComplete}
                 />
 
                 {/* Visual Meditation */}
