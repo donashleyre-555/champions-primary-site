@@ -18,6 +18,8 @@ import {
   Calendar
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import VideoGallery from "@/components/coaches-corner/VideoGallery";
+import mentalToughnessThumbnail from "@/assets/mental-toughness-thumbnail.jpg";
 import { toast } from "sonner";
 
 const CoachesCorner = () => {
@@ -100,7 +102,7 @@ const CoachesCorner = () => {
                 <div className="aspect-video bg-secondary/20 flex items-center justify-center">
                   <video 
                     className="w-full h-full object-cover rounded-t-lg"
-                    poster="/images/hero-meditation-male.jpg"
+                    poster={mentalToughnessThumbnail}
                     controls
                   >
                     <source src="/videos/mental-toughness-welcome.mp4" type="video/mp4" />
@@ -268,6 +270,9 @@ const CoachesCorner = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Video Gallery Section */}
+            <VideoGallery />
           </div>
 
           {/* Sidebar */}
