@@ -16,10 +16,22 @@ interface Episode {
   category: string;
 }
 
+import mentalToughnessThumbnail from "@/assets/mental-toughness-thumbnail.jpg";
+
 const episodes: Episode[] = [
   {
+    id: 47,
+    title: "Mental Toughness: The Champion's Edge",
+    description: "Coach Don reveals the mental frameworks that separate elite performers from the competition.",
+    duration: "18 min",
+    date: "Dec 15, 2024",
+    thumbnail: mentalToughnessThumbnail,
+    videoSrc: "/videos/mental-toughness-welcome.mp4",
+    category: "Mindset"
+  },
+  {
     id: 46,
-    title: "Building Unstoppable Confidence",
+    title: "Coach Don: Building Unstoppable Confidence",
     description: "Discover the psychological frameworks elite athletes use to build unshakeable confidence that performs under pressure.",
     duration: "32 min",
     date: "Dec 8, 2024",
@@ -28,7 +40,7 @@ const episodes: Episode[] = [
   },
   {
     id: 45,
-    title: "The Psychology of Winning",
+    title: "Coach Don: The Psychology of Winning",
     description: "Understanding the mental patterns that separate winners from competitors and how to develop a championship mindset.",
     duration: "28 min",
     date: "Dec 1, 2024",
@@ -37,7 +49,7 @@ const episodes: Episode[] = [
   },
   {
     id: 44,
-    title: "Overcoming Mental Blocks",
+    title: "Coach Don: Overcoming Mental Blocks",
     description: "Practical strategies for breaking through mental barriers and unlocking your full athletic potential.",
     duration: "35 min",
     date: "Nov 24, 2024",
@@ -46,7 +58,7 @@ const episodes: Episode[] = [
   },
   {
     id: 43,
-    title: "Pre-Game Visualization Mastery",
+    title: "Coach Don: Pre-Game Visualization",
     description: "Learn the exact visualization techniques used by Olympic champions to prepare for peak performance.",
     duration: "25 min",
     date: "Nov 17, 2024",
@@ -55,21 +67,12 @@ const episodes: Episode[] = [
   },
   {
     id: 42,
-    title: "Managing Competition Anxiety",
+    title: "Coach Don: Managing Competition Anxiety",
     description: "Transform nervous energy into competitive fuel with these proven anxiety management techniques.",
     duration: "30 min",
     date: "Nov 10, 2024",
     thumbnail: "/images/course-stadium-video.jpg",
     category: "Mental Health"
-  },
-  {
-    id: 41,
-    title: "The Champion's Daily Routine",
-    description: "Structure your day like a champion with morning rituals and habits that build mental toughness.",
-    duration: "22 min",
-    date: "Nov 3, 2024",
-    thumbnail: "/images/hero-meditation-male.jpg",
-    category: "Habits"
   }
 ];
 
