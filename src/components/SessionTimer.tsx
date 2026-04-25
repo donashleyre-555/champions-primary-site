@@ -32,7 +32,7 @@ const SessionTimer = ({
   const stepProgress = Math.min((timeElapsed - stepStartTime) / currentStepDuration * 100, 100);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
     if (sessionActive) {
       interval = setInterval(() => {
         setTimeElapsed(prev => prev + 1);

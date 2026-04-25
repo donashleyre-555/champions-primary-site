@@ -26,7 +26,7 @@ const AudioHubPlayer = () => {
   const [timerActive, setTimerActive] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const tracks = [
     { 
