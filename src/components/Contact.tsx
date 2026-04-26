@@ -101,8 +101,8 @@ const Contact = () => {
 
             {isSubmitted ? (
               <div className="text-center py-12 animate-scale-in">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Send className="w-8 h-8 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold text-primary mb-2">Message sent!</h4>
                 <p className="text-muted-foreground">
