@@ -24,48 +24,38 @@ const BlogPage = () => {
 
       {/* Main Content */}
       <div className="container max-w-4xl mx-auto px-6 py-12">
-        <Card className="mb-8">
-          <CardHeader>
-            <h2 className="text-2xl font-bold text-foreground border-b-2 border-primary pb-2">
-              The Power of Mindset
-            </h2>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-6">
-              Your mindset is the cornerstone of your success. Believe in yourself, set ambitious goals, and visualize achieving them.
-            </p>
-            
-            <div className="bg-muted border-l-4 border-primary p-4 italic text-muted-foreground mb-6">
-              "Champions aren't made in gyms. Champions are made from something they have deep inside them — a desire, a dream, a vision." — Muhammad Ali
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <h2 className="text-2xl font-bold text-foreground border-b-2 border-primary pb-2">
-              Discipline: The Bridge Between Goals and Accomplishments
-            </h2>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Discipline is about doing what needs to be done, even when you don't feel like it. Set routines, stay consistent, and build momentum.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <h2 className="text-2xl font-bold text-foreground border-b-2 border-primary pb-2">
-              Champions in Action
-            </h2>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              This week we spotlight Jake, a junior from Great Oaks High School, who overcame setbacks with determination and led his team to victory.
-            </p>
-          </CardContent>
-        </Card>
+        {[
+          {
+            title: "Why 'It's a Choice' Is the Most Powerful Phrase in Sports",
+            date: "April 20, 2026",
+            excerpt:
+              "Every champion I've ever coached had one thing in common: they stopped waiting for permission and started making decisions. Here's why that single phrase changes everything...",
+          },
+          {
+            title: "The Fibonacci Challenge: Why Math and Mindset Are the Same Thing",
+            date: "April 15, 2026",
+            excerpt:
+              "The Fibonacci sequence isn't just a math concept — it's a blueprint for how champions build momentum. Small wins compound into transformation...",
+          },
+          {
+            title: "Recovery Is Not Optional: What Student-Athletes Get Wrong",
+            date: "April 10, 2026",
+            excerpt:
+              "I've coached 64-year-old bodies and 16-year-old bodies. The lesson is the same: recovery is where the growth happens. Here's the protocol we use...",
+          },
+        ].map((post, i) => (
+          <Card key={i} className="mb-8">
+            <CardHeader>
+              <p className="text-sm text-muted-foreground mb-1">{post.date}</p>
+              <h2 className="text-2xl font-bold text-foreground border-b-2 border-primary pb-2">
+                {post.title}
+              </h2>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">{post.excerpt}</p>
+            </CardContent>
+          </Card>
+        ))}
 
         {/* CTA Section */}
         <div className="text-center my-12">
