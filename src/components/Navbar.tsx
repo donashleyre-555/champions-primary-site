@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogOut, User } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { useLive } from "@/contexts/LiveContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -8,9 +9,10 @@ import { useAuth } from "@/contexts/AuthContext";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLive, setIsLive] = useState(false);
   const { setModalOpen } = useLive();
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,20 +22,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // After navigating to /#section, scroll to it
   useEffect(() => {
-    // Simulate live status check - in production, check actual streaming platform
-    const checkLiveStatus = () => {
-      const isCurrentlyLive = Math.random() > 0.7; // 30% chance of being live for demo
-      setIsLive(isCurrentlyLive);
-    };
-
-    checkLiveStatus();
-    const interval = setInterval(checkLiveStatus, 60000); // Check every minute
-
-    return () => clearInterval(interval);
-  }, []);
+    if (location.pathname === "/" && location.hash) {
+      const id = location.hash.replace("#", "");
+      // small delay so the section has mounted
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+        }
+      }, 50);
+    }
+  }, [location]);
 
   const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`);
+      setIsMobileMenuOpen(false);
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = 80;
@@ -46,6 +54,33 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const goRoute = (path: string) => {
+    navigate(path);
+    setIsMobileMenuOpen(false);
+  };
+
+  const openLive = () => {
+    setModalOpen(true);
+    setIsMobileMenuOpen(false);
+  };
+
+  const WatchLiveButton = ({ mobile = false }: { mobile?: boolean }) => (
+    <Button
+      onClick={openLive}
+      variant="outline"
+      size={mobile ? "default" : "sm"}
+      className={`border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-background/40 backdrop-blur-sm font-semibold ${
+        mobile ? "w-full justify-start" : ""
+      }`}
+    >
+      <span className="relative flex h-2.5 w-2.5 mr-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+      </span>
+      Watch Live
+    </Button>
+  );
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -57,67 +92,65 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="text-xl font-bold text-gradient">
-              Champions Lifestyle
-            </h1>
+          <div className="flex items-center cursor-pointer" onClick={() => goRoute("/")}>
+            <h1 className="text-xl font-bold text-gradient">Champions Lifestyle</h1>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => scrollToSection("hero")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Home
             </button>
-            <a
-              href="/fibonacci-challenge"
+            <button
+              onClick={() => goRoute("/about")}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              About
+            </button>
+            <button
+              onClick={() => goRoute("/fibonacci-challenge")}
               className="text-foreground hover:text-primary transition-colors font-semibold"
             >
               Fibonacci Challenge
-            </a>
-            <a
-              href="/wellness-toolkit"
+            </button>
+            <button
+              onClick={() => goRoute("/wellness-toolkit")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Wellness Toolkit
-            </a>
+            </button>
             <button
-              onClick={() => scrollToSection("meditation")}
+              onClick={() => goRoute("/meditation")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Meditation
             </button>
             <button
-              onClick={() => scrollToSection("projects")}
+              onClick={() => goRoute("/projects")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Projects
             </button>
             <button
-              onClick={() => scrollToSection("blog")}
+              onClick={() => goRoute("/blog")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Blog
             </button>
-            <a
-              href="/audio-hub"
+            <button
+              onClick={() => goRoute("/audio-hub")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Audio Hub
-            </a>
-            <a
-              href="/coaches-corner"
+            </button>
+            <button
+              onClick={() => goRoute("/coaches-corner")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Coaches Corner
-            </a>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              About
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -125,14 +158,9 @@ const Navbar = () => {
             >
               Contact
             </button>
-            {isLive && (
-              <Button
-                onClick={() => setModalOpen(true)}
-                className="bg-red-600 hover:bg-red-700 text-white font-semibold animate-pulse"
-              >
-                🔴 Watch Live
-              </Button>
-            )}
+
+            <WatchLiveButton />
+
             <ThemeToggle />
             {user ? (
               <Button
@@ -145,12 +173,15 @@ const Navbar = () => {
                 Sign Out
               </Button>
             ) : (
-              <a href="/auth">
-                <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                  <User className="h-4 w-4" />
-                  Sign In
-                </Button>
-              </a>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => goRoute("/auth")}
+                className="flex items-center gap-2"
+              >
+                <User className="h-4 w-4" />
+                Sign In
+              </Button>
             )}
           </div>
 
@@ -162,11 +193,7 @@ const Navbar = () => {
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -181,57 +208,53 @@ const Navbar = () => {
               >
                 Home
               </button>
-              <a
-                href="/fibonacci-challenge"
+              <button
+                onClick={() => goRoute("/about")}
+                className="block w-full text-left text-foreground hover:text-primary transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => goRoute("/fibonacci-challenge")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors font-semibold"
-                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Fibonacci Challenge
-              </a>
-              <a
-                href="/wellness-toolkit"
+              </button>
+              <button
+                onClick={() => goRoute("/wellness-toolkit")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Wellness Toolkit
-              </a>
+              </button>
               <button
-                onClick={() => scrollToSection("meditation")}
+                onClick={() => goRoute("/meditation")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors"
               >
                 Meditation
               </button>
               <button
-                onClick={() => scrollToSection("projects")}
+                onClick={() => goRoute("/projects")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors"
               >
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection("blog")}
+                onClick={() => goRoute("/blog")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors"
               >
                 Blog
               </button>
-              <a
-                href="/audio-hub"
+              <button
+                onClick={() => goRoute("/audio-hub")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Audio Hub
-              </a>
-              <a
-                href="/coaches-corner"
+              </button>
+              <button
+                onClick={() => goRoute("/coaches-corner")}
                 className="block w-full text-left text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Coaches Corner
-              </a>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block w-full text-left text-foreground hover:text-primary transition-colors"
-              >
-                About
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -239,6 +262,9 @@ const Navbar = () => {
               >
                 Contact
               </button>
+
+              <WatchLiveButton mobile />
+
               {user ? (
                 <Button
                   variant="ghost"
@@ -252,13 +278,12 @@ const Navbar = () => {
                   Sign Out
                 </Button>
               ) : (
-                <a 
-                  href="/auth"
+                <button
+                  onClick={() => goRoute("/auth")}
                   className="block w-full text-left text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Sign In
-                </a>
+                </button>
               )}
             </div>
           </div>
