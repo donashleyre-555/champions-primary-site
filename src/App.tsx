@@ -14,6 +14,8 @@ import AudioHub from "./pages/AudioHub";
 import FibonacciChallenge from "./pages/FibonacciChallenge";
 import WellnessToolkit from "./pages/WellnessToolkit";
 import Auth from "./pages/Auth";
+import Meditation from "./pages/Meditation";
+import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +43,8 @@ const App = () => (
                 <Route path="/fibonacci-challenge" element={<FibonacciChallenge />} />
                 <Route path="/wellness-toolkit" element={<WellnessToolkit />} />
                 <Route path="/auth" element={<Auth />} />
+                <Route path="/meditation" element={<Meditation />} />
+                <Route path="/projects" element={<Projects />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

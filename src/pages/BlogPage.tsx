@@ -81,12 +81,12 @@ const BlogPage = () => {
           <p className="text-lg font-bold mb-2">"FOCUS, TEAMWORK, WORK HARD, GET BETTER"</p>
           <Separator className="my-4 bg-primary/20" />
           <p className="text-sm text-muted-foreground">
-            © 2025 Champions Lifestyle Program | {" "}
+            © 2026 Champions Lifestyle Program | {" "}
             <a 
-              href="mailto:info@championslifestyle.com" 
+              href="mailto:hello@championslifestyle.com" 
               className="text-primary hover:text-primary/80 transition-colors"
             >
-              info@championslifestyle.com
+              hello@championslifestyle.com
             </a>
           </p>
         </div>
