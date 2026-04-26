@@ -138,11 +138,11 @@ const About = () => {
         <div className="container mx-auto px-4 text-center">
           <Card className="card-gradient max-w-3xl mx-auto p-8">
             <h2 className="text-3xl font-bold text-gradient mb-4">
-              Ready to Make the Choice?
+              Ready to Start Your Journey?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Whether you're an athlete, parent, or professional — Champions Lifestyle helps
-              you build the mindset and habits that produce real results.
+              Join thousands of student-athletes and champions who have transformed their
+              mindset, performance, and reality. It's a Choice — make yours today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="btn-hero" onClick={goToContact}>
