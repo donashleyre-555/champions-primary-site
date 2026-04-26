@@ -14,16 +14,31 @@ const Newsletter = () => {
     if (!email) return;
 
     setIsLoading(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubscribed(true);
-    setIsLoading(false);
-    setEmail("");
-    
-    // Reset after 3 seconds
-    setTimeout(() => setIsSubscribed(false), 3000);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpwzgvkj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          _subject: "New Champions Lifestyle Newsletter Subscriber",
+          _to: "info@championslifestyle.com",
+        }),
+      });
+
+      if (!response.ok) throw new Error("Subscription failed");
+
+      setIsSubscribed(true);
+      setEmail("");
+      setTimeout(() => setIsSubscribed(false), 5000);
+    } catch (err) {
+      console.error("Newsletter subscribe error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -111,13 +126,13 @@ const Newsletter = () => {
             ) : (
               <div className="animate-scale-in">
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <CheckCircle className="w-8 h-8 text-green-500" />
-                  <span className="text-lg font-semibold text-green-500">
-                    Welcome to the Champions Community!
+                  <CheckCircle className="w-8 h-8 text-primary" />
+                  <span className="text-lg font-semibold text-primary">
+                    You're in!
                   </span>
                 </div>
                 <p className="text-muted-foreground">
-                  Check your email for a confirmation link and your first exclusive content.
+                  Check your inbox for your first Champions Lifestyle insight.
                 </p>
               </div>
             )}
