@@ -147,7 +147,7 @@ const About = () => {
               mindset, performance, and reality. It's a Choice — make yours today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="btn-hero" onClick={goToContact}>
+              <Button className="btn-hero" onClick={openCalendly}>
                 Schedule a Discovery Call
               </Button>
               <Button variant="outline" className="btn-glass" onClick={goToContact}>
