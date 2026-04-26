@@ -17,6 +17,7 @@ import Auth from "./pages/Auth";
 import Meditation from "./pages/Meditation";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
+import LiveWebinar from "./components/LiveWebinar";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <LiveWebinar />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
