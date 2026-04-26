@@ -9,7 +9,7 @@ import { useAuth } from "@/contexts/AuthContext";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { setModalOpen } = useLive();
+  const { openLiveModal } = useLive();
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -60,7 +60,7 @@ const Navbar = () => {
   };
 
   const openLive = () => {
-    setModalOpen(true);
+    openLiveModal();
     setIsMobileMenuOpen(false);
   };
 
@@ -74,8 +74,8 @@ const Navbar = () => {
       }`}
     >
       <span className="relative flex h-2.5 w-2.5 mr-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-destructive"></span>
       </span>
       Watch Live
     </Button>
