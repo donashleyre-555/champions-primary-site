@@ -140,7 +140,7 @@ const Newsletter = () => {
             {/* Footer Branding */}
             <div className="mt-8 pt-6 border-t border-primary/20 text-center">
               <p className="text-xs text-muted-foreground">
-                © 2024 Champions Lifestyle | Transform Your Mind, Transform Your Life
+                © 2026 Champions Lifestyle | Transform Your Mind, Transform Your Life
               </p>
             </div>
           </div>
