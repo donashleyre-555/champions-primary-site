@@ -25,16 +25,35 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpwzgvkj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _replyto: formData.email,
+          _to: "info@championslifestyle.com",
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to send");
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      toast.success("Message sent! We'll respond within 24 hours.");
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleQuickAction = (action: string) => {
@@ -82,12 +101,12 @@ const Contact = () => {
 
             {isSubmitted ? (
               <div className="text-center py-12 animate-scale-in">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Send className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="text-xl font-bold text-green-600 mb-2">Message Sent!</h4>
+                <h4 className="text-xl font-bold text-primary mb-2">Message sent!</h4>
                 <p className="text-muted-foreground">
-                  Thank you for reaching out. I'll get back to you within 24 hours.
+                  We'll respond within 24 hours.
                 </p>
               </div>
             ) : (
