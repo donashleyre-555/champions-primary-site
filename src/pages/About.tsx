@@ -94,7 +94,7 @@ const About = () => {
             <div className="relative">
               <div className="relative z-10">
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663562712292/gVokkMAHLilPFgAf.jpg"
+                  src="/coach-don-headshot.jpg"
                   alt="Coach Don Ashley"
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
                 />
