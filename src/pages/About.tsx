@@ -95,7 +95,7 @@ const About = () => {
               <div className="relative z-10">
                 <img
                   src="/coach-don-headshot.jpg"
-                  alt="Coach Don Ashley"
+                  alt="Coach Don Ashley - Champions Lifestyle Founder"
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
                 />
               </div>
