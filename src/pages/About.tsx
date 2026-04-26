@@ -44,6 +44,8 @@ const About = () => {
   ];
 
   const goToContact = () => navigate("/#contact");
+  const openCalendly = () =>
+    window.open("https://calendly.com/championslifestyle", "_blank", "noopener,noreferrer");
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,7 +80,7 @@ const About = () => {
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-hero" onClick={goToContact}>
+                <Button className="btn-hero" onClick={openCalendly}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule a Discovery Call
                 </Button>
@@ -92,7 +94,7 @@ const About = () => {
             <div className="relative">
               <div className="relative z-10">
                 <img
-                  src="/images/profile.jpg"
+                  src="/images/coach-don-ashley.jpg"
                   alt="Coach Don Ashley"
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
                 />
@@ -145,7 +147,7 @@ const About = () => {
               mindset, performance, and reality. It's a Choice — make yours today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="btn-hero" onClick={goToContact}>
+              <Button className="btn-hero" onClick={openCalendly}>
                 Schedule a Discovery Call
               </Button>
               <Button variant="outline" className="btn-glass" onClick={goToContact}>

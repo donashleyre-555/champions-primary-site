@@ -40,9 +40,7 @@ const Contact = () => {
   const handleQuickAction = (action: string) => {
     switch (action) {
       case "call":
-        toast.info("Scheduling Discovery Call...", {
-          description: "Redirecting to calendar booking system."
-        });
+        window.open("https://calendly.com/championslifestyle", "_blank", "noopener,noreferrer");
         break;
       case "guide":
         toast.success("Downloading Free Guide...", {
@@ -181,7 +179,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email</h4>
-                    <p className="text-muted-foreground">hello@championslifestyle.com</p>
+                    <a
+                      href="mailto:hello@championslifestyle.com"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      hello@championslifestyle.com
+                    </a>
                     <p className="text-sm text-muted-foreground mt-1">
                       Best for detailed inquiries and collaboration
                     </p>
@@ -194,9 +197,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone</h4>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">Available upon request</p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Available for urgent matters
+                      Share your number via the form for urgent matters
                     </p>
                   </div>
                 </div>
