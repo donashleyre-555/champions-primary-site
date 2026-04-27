@@ -180,7 +180,7 @@ const Navbar = () => {
                 className="flex items-center gap-2"
               >
                 <User className="h-4 w-4" />
-                Sign In
+                Member Login
               </Button>
             )}
           </div>
@@ -282,7 +282,7 @@ const Navbar = () => {
                   onClick={() => goRoute("/auth")}
                   className="block w-full text-left text-foreground hover:text-primary transition-colors"
                 >
-                  Sign In
+                  Member Login
                 </button>
               )}
             </div>
