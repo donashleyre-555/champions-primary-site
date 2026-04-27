@@ -14,7 +14,8 @@ const Challenges = () => {
       difficulty: "Beginner",
       participants: "2,847",
       color: "from-yellow-500/20 to-amber-600/20",
-      borderColor: "border-yellow-500/30"
+      borderColor: "border-yellow-500/30",
+      cta: "Start Free Trial"
     },
     {
       title: "90-Day Transformation Challenge", 
@@ -25,7 +26,8 @@ const Challenges = () => {
       difficulty: "Advanced",
       participants: "1,204",
       color: "from-purple-500/20 to-indigo-600/20",
-      borderColor: "border-purple-500/30"
+      borderColor: "border-purple-500/30",
+      cta: "Enroll Now"
     },
     {
       title: "Champions Elite Training",
@@ -36,7 +38,8 @@ const Challenges = () => {
       difficulty: "Elite",
       participants: "387",
       color: "from-emerald-500/20 to-teal-600/20",
-      borderColor: "border-emerald-500/30"
+      borderColor: "border-emerald-500/30",
+      cta: "Apply for Elite"
     }
   ];
 
@@ -129,7 +132,7 @@ const Challenges = () => {
                   onClick={() => window.open("https://championslifestyle.com/courses", "_blank", "noopener,noreferrer")}
                 >
                   <Trophy className="w-5 h-5 mr-2" />
-                  Join Challenge
+                  {challenge.cta}
                 </Button>
               </div>
             </Card>
