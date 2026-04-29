@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, Users, Trophy, Target } from "lucide-react";
+import { Play, Clock, Users, Trophy, Target, X } from "lucide-react";
 
 const Challenges = () => {
+  const [previewOpen, setPreviewOpen] = useState(false);
   const challenges = [
     {
       title: "30-Day Foundation Challenge",
