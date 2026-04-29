@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, Users, Trophy, Target } from "lucide-react";
+import { Play, Clock, Users, Trophy, Target, X } from "lucide-react";
 
 const Challenges = () => {
+  const [previewOpen, setPreviewOpen] = useState(false);
   const challenges = [
     {
       title: "30-Day Foundation Challenge",
@@ -162,13 +164,40 @@ const Challenges = () => {
                 <Play className="w-5 h-5 mr-2" />
                 Start 30-Day Challenge
               </Button>
-              <Button variant="outline" size="lg" className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black text-lg px-8 py-4">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-black/80 border-primary text-primary hover:bg-primary hover:text-black text-lg px-8 py-4"
+                onClick={() => setPreviewOpen(true)}
+              >
                 Watch Preview
               </Button>
             </div>
           </Card>
         </div>
       </div>
+
+      {previewOpen && (
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="relative w-full h-full max-w-7xl max-h-[95vh] bg-black rounded-xl overflow-hidden border border-primary/30">
+            <Button
+              onClick={() => setPreviewOpen(false)}
+              variant="destructive"
+              size="icon"
+              className="absolute top-4 right-4 z-10"
+              aria-label="Close preview"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+            <iframe
+              src="https://brand-master-toolkit.lovable.app"
+              title="Brand Master Toolkit Preview"
+              className="w-full h-full border-0"
+              allow="fullscreen"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
