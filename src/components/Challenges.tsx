@@ -176,6 +176,28 @@ const Challenges = () => {
           </Card>
         </div>
       </div>
+
+      {previewOpen && (
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="relative w-full h-full max-w-7xl max-h-[95vh] bg-black rounded-xl overflow-hidden border border-primary/30">
+            <Button
+              onClick={() => setPreviewOpen(false)}
+              variant="destructive"
+              size="icon"
+              className="absolute top-4 right-4 z-10"
+              aria-label="Close preview"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+            <iframe
+              src="https://brand-master-toolkit.lovable.app"
+              title="Brand Master Toolkit Preview"
+              className="w-full h-full border-0"
+              allow="fullscreen"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
