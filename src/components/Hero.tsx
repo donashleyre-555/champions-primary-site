@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Play, Sparkles } from "lucide-react";
 import heroFootballMeditation from "@/assets/hero-football-meditation.jpg";
-import VideoModal from "./VideoModal";
 
 const Hero = () => {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const scrollToChallenges = () => {
     const element = document.getElementById("challenges");
@@ -87,14 +84,6 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-float"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float" style={{ animationDelay: "2s" }}></div>
       <div className="absolute top-1/2 left-20 w-16 h-16 bg-secondary/20 rounded-full blur-xl animate-float" style={{ animationDelay: "4s" }}></div>
-
-      {/* Video Modal */}
-      <VideoModal 
-        isOpen={isVideoModalOpen}
-        onClose={() => setIsVideoModalOpen(false)}
-        title="Crack The Code: Bentov-Gateway Protocol"
-        description="Learn the science-based approach to mastering focus, emotions, and consciousness"
-      />
     </section>
   );
 };
