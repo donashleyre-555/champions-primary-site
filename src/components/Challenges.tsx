@@ -8,41 +8,41 @@ const Challenges = () => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const challenges = [
     {
-      title: "30-Day Foundation Challenge",
-      duration: "30 Days",
-      description: "Master the fundamentals of the Champions Lifestyle protocol with daily guided sessions",
-      features: ["Daily 15-minute sessions", "Progress tracking", "Community support", "Basic visualization techniques"],
+      title: "7-Day Focus Challenge",
+      duration: "Free • Instant Access",
+      description: "Kickstart your transformation with our most popular entry program. No credit card required.",
+      features: ["90-Day Discipline Tracker", "Visualization Mastery", "Habit Scoreboard"],
       thumbnail: "/images/course-intro-video.jpg",
-      difficulty: "Beginner",
+      difficulty: "Free",
       participants: "2,847",
       color: "from-yellow-500/20 to-amber-600/20",
       borderColor: "border-yellow-500/30",
-      cta: "Start Free Trial"
+      cta: "START FREE NOW",
     },
     {
-      title: "90-Day Transformation Challenge", 
-      duration: "90 Days",
-      description: "Complete transformation program combining advanced meditation, visualization, and consciousness development",
-      features: ["Advanced protocols", "Weekly coaching calls", "Personal development tracking", "Elite community access"],
+      title: "Full Membership",
+      duration: "$200/month",
+      description: "The complete Champions Lifestyle system with live coaching and full community access.",
+      features: ["Weekly Live Coaching", "Complete Workbook + SJH Drills", "Private Community"],
       thumbnail: "/images/course-advanced-video.jpg",
-      difficulty: "Advanced",
+      difficulty: "Members",
       participants: "1,204",
       color: "from-purple-500/20 to-indigo-600/20",
       borderColor: "border-purple-500/30",
-      cta: "Enroll Now"
+      cta: "JOIN THE PROGRAM",
     },
     {
-      title: "Champions Elite Training",
-      duration: "Ongoing",
-      description: "Exclusive training for serious practitioners ready to unlock their full potential",
-      features: ["Live training sessions", "Personal mentorship", "Advanced techniques", "Championship mindset"],
+      title: "SJH Stallions Program",
+      duration: "For Athletes & Families",
+      description: "Football-specific mental training built for student-athletes and their support systems.",
+      features: ["Football-Specific Mental Training", "Private Locker Access", "Team & Parent Tools"],
       thumbnail: "/images/course-stadium-video.jpg",
-      difficulty: "Elite",
+      difficulty: "Athletes",
       participants: "387",
       color: "from-emerald-500/20 to-teal-600/20",
       borderColor: "border-emerald-500/30",
-      cta: "Apply for Elite"
-    }
+      cta: "ENROLL MY ATHLETE",
+    },
   ];
 
   return (
