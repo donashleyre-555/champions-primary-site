@@ -21,6 +21,7 @@ const PROTOCOL_GROUP: NavGroup = {
 const RESOURCES_GROUP: NavGroup = {
   label: "Resources",
   items: [
+    { label: "Personalized Workbook", path: "https://manus.im/app/kTrk8yaZRxxrB5xi2VOO6L" },
     { label: "Audio Hub", path: "/audio-hub" },
     { label: "Coaches Corner", path: "/coaches-corner" },
     { label: "Blog", path: "/blog" },
@@ -65,7 +66,11 @@ const Navbar = () => {
   }, []);
 
   const goRoute = (path: string) => {
-    navigate(path);
+    if (/^https?:\/\//i.test(path)) {
+      window.open(path, "_blank", "noopener,noreferrer");
+    } else {
+      navigate(path);
+    }
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   };
