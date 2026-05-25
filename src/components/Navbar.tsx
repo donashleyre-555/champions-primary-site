@@ -66,7 +66,11 @@ const Navbar = () => {
   }, []);
 
   const goRoute = (path: string) => {
-    navigate(path);
+    if (/^https?:\/\//i.test(path)) {
+      window.open(path, "_blank", "noopener,noreferrer");
+    } else {
+      navigate(path);
+    }
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   };
