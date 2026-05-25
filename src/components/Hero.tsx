@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { ArrowDown, Play, Sparkles } from "lucide-react";
+import { ArrowDown, Play, Sparkles, BookOpen } from "lucide-react";
 import heroFootballMeditation from "@/assets/hero-football-meditation.jpg";
 
 const Hero = () => {
