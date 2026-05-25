@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Play, Sparkles } from "lucide-react";
 import heroFootballMeditation from "@/assets/hero-football-meditation.jpg";
