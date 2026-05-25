@@ -66,8 +66,17 @@ const Hero = () => {
               <Play className="w-5 h-5 mr-2" />
               START YOUR FREE 7-DAY TRANSFORMATION
             </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-black bg-background/40 backdrop-blur-sm text-base md:text-lg px-8 py-5 h-auto font-semibold tracking-wide"
+              onClick={() => window.open("https://manus.im/app/kTrk8yaZRxxrB5xi2VOO6L", "_blank", "noopener,noreferrer")}
+            >
+              <BookOpen className="w-5 h-5 mr-2" />
+              Create My Personalized Workbook
+            </Button>
             <p className="text-sm md:text-base text-muted-foreground font-medium">
-              Used by SJH Stallions • Athletes • Students • Leaders
+              Teamwork • Focus • Work Hard • Get Better — Used by SJH Stallions, athletes, students & leaders
             </p>
           </div>
 
