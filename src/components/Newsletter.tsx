@@ -16,28 +16,27 @@ const Newsletter = () => {
     if (!email) return;
 
     setIsLoading(true);
-
     try {
-      const response = await fetch("https://formspree.io/f/xpwzgvkj", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          _subject: "New Champions Lifestyle Newsletter Subscriber",
-          _to: "info@championslifestyle.com",
-        }),
-      });
+      const { error } = await supabase
+        .from("newsletter_subscribers")
+        .insert({ email: email.trim().toLowerCase() });
 
-      if (!response.ok) throw new Error("Subscription failed");
+      if (error) {
+        if (error.code === "23505" || error.message?.toLowerCase().includes("duplicate")) {
+          toast.info("You're already subscribed!");
+        } else {
+          toast.error("Couldn't subscribe. Please try again.");
+        }
+        return;
+      }
 
       setIsSubscribed(true);
       setEmail("");
+      toast.success("You're in! Welcome to the Champions circle.");
       setTimeout(() => setIsSubscribed(false), 5000);
     } catch (err) {
       console.error("Newsletter subscribe error:", err);
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
