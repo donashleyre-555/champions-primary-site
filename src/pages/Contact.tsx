@@ -50,8 +50,8 @@ const Contact = () => {
   };
 
   const infoCards = [
-    { icon: <Mail className="w-5 h-5" />, title: "Email", value: "hello@championslifestyle.com", href: "mailto:hello@championslifestyle.com" },
-    { icon: <Phone className="w-5 h-5" />, title: "Phone", value: "+1 (310) 555-0100", href: "tel:+13105550100" },
+    { icon: <Mail className="w-5 h-5" />, title: "Email", value: "Info@championslifestyle.com", href: "mailto:Info@championslifestyle.com" },
+    { icon: <Phone className="w-5 h-5" />, title: "Phone", value: "+1 (310) 595-7876", href: "tel:+13105957876" },
     { icon: <Clock className="w-5 h-5" />, title: "Response Time", value: "Within 24 hours", href: null },
   ];
 
