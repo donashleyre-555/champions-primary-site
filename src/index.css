@@ -71,34 +71,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 0%; /* Pure black background */
-    --foreground: 0 0% 98%; /* White text */
+    --background: 225 18% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 7%; /* Slightly lighter black for cards */
-    --card-foreground: 43 96% 56%; /* Gold text */
+    --card: 224 20% 14%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 7%;
+    --popover: 224 20% 14%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 43 96% 56%; /* Refined Gold stays same in dark mode */
-    --primary-foreground: 0 0% 0%; /* Black text on gold */
-    --primary-glow: 48 100% 67%; /* Lighter gold */
+    --primary: 38 92% 50%;
+    --primary-foreground: 224 25% 10%;
+    --primary-glow: 43 96% 60%;
 
-    --secondary: 0 0% 0%; /* Pure Black */
-    --secondary-foreground: 43 96% 56%; /* Gold text on black */
+    --secondary: 225 22% 16%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 12%; /* Slightly lighter dark grey */
-    --muted-foreground: 43 30% 70%; /* Muted gold */
+    --muted: 224 20% 14%;
+    --muted-foreground: 220 13% 80%;
 
-    --accent: 43 86% 50%; /* Deeper refined gold */
-    --accent-foreground: 0 0% 0%; /* Black text */
+    --accent: 38 92% 50%;
+    --accent-foreground: 224 25% 10%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 43 30% 20%; /* Gold-tinted border */
-    --input: 0 0% 10%; /* Dark input */
-    --ring: 43 96% 56%; /* Gold ring */
+    --border: 224 18% 22%;
+    --input: 224 20% 16%;
+    --ring: 38 92% 50%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
