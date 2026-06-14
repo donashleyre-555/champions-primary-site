@@ -73,10 +73,10 @@ const BlogPage = () => {
           <p className="text-sm text-muted-foreground">
             © 2026 Champions Lifestyle Program | {" "}
             <a 
-              href="mailto:hello@championslifestyle.com" 
+              href="mailto:Info@championslifestyle.com" 
               className="text-primary hover:text-primary/80 transition-colors"
             >
-              hello@championslifestyle.com
+              Info@championslifestyle.com
             </a>
           </p>
         </div>

@@ -199,10 +199,10 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold mb-1">Email</h4>
                     <a
-                      href="mailto:hello@championslifestyle.com"
+                      href="mailto:Info@championslifestyle.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      hello@championslifestyle.com
+                      Info@championslifestyle.com
                     </a>
                     <p className="text-sm text-muted-foreground mt-1">
                       Best for detailed inquiries and collaboration
