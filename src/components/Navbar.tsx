@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogOut, User, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
+
 import { useLive } from "@/contexts/LiveContext";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -155,7 +155,6 @@ const Navbar = () => {
 
             <WatchLiveButton />
 
-            <ThemeToggle />
             {user ? (
               <Button variant="ghost" size="sm" onClick={signOut} className="flex items-center gap-2">
                 <LogOut className="h-4 w-4" />
@@ -176,8 +175,8 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-2">
-            <ThemeToggle />
             <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
