@@ -17,6 +17,7 @@ import Auth from "./pages/Auth";
 import Meditation from "./pages/Meditation";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import StallionsWeeklyPlan from "./pages/StallionsWeeklyPlan";
 import NotFound from "./pages/NotFound";
 import LiveWebinar from "./components/LiveWebinar";
 
