@@ -25,6 +25,7 @@ const RESOURCES_GROUP: NavGroup = {
     { label: "Audio Hub", path: "/audio-hub" },
     { label: "Coaches Corner", path: "/coaches-corner" },
     { label: "Blog", path: "/blog" },
+    { label: "Stallions Weekly Plan", path: "/stallions-weekly-plan" },
     { label: "Projects", path: "/projects" },
   ],
 };
